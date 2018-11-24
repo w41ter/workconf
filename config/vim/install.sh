@@ -37,7 +37,7 @@ cp ${WORKDIR}/entrance.vim ~/.config/nvim/autoload/entrance.vim
 NVIM_INIT_FILE=~/.config/nvim/init.vim
 if [ ! -f ${NVIM_INIT_FILE} ]; then
 	mkdir -p '~/.config/nvim/'
-	echo 'call entrance#Main()\n' > ${NVIM_INIT_FILE}
+	echo 'call entrance#Main()' > ${NVIM_INIT_FILE}
 	echo "install load scripts in ${NVIM_INIT_FILE}"
 else
 	echo 'now you can add "call entrance#Main()" at ~/.config/nvim/init.vim'
