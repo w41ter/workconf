@@ -21,7 +21,11 @@ esac
 
 cmake -H. -BRelease -DCMAKE_PREFIX_PATH=~/.bin/ 
 # -DSYSTEM_CLANG=on
-cmake --build Release -- -j8
+
+ncpu=`nproc`  #`sysctl -n hw.ncpu`
+cmake --build Release -- -j${ncpu}
+
+mkdir -p ~/.bin/local
 ln -s ~/.code/ccls/Release/ccls ~/.bin/local/ccls
 
 popd 

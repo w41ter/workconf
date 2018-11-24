@@ -25,7 +25,8 @@ update_tags
 
 echo 'try compile and install neovim'
 
-make -j 8 CMAKE_EXTRA_FLAGS="-DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=~/.bin/neovim"
+ncpu=`nproc`  #`sysctl -n hw.ncpu`
+make -j ${ncpu} CMAKE_EXTRA_FLAGS="-DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=~/.bin/neovim"
 make install
 
 mkdir -p ~/.bin/local/
