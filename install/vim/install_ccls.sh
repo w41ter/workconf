@@ -19,7 +19,8 @@ case $1 in
 		;;
 esac
 
-cmake -H. -BRelease -DCMAKE_PREFIX_PATH=~/.bin/ -DSYSTEM_CLANG=on
+cmake -H. -BRelease -DCMAKE_PREFIX_PATH=~/.bin/ 
+# -DSYSTEM_CLANG=on
 cmake --build Release -- -j8
 ln -s ~/.code/ccls/Release/ccls ~/.bin/local/ccls
 
