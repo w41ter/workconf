@@ -58,6 +58,7 @@ func! MotionSettings()
 endfunc
 
 func! SymbolReferences()
+	let g:gutentags_trace = 1
 	let g:gutentags_enabled = 1
 	let g:gutentags_project_root = ['.root', '.git']
 	let g:gutentags_ctags_tagfile = '.tags'
@@ -67,9 +68,11 @@ func! SymbolReferences()
 	endif
 	let s:vim_tags = expand('~/.cache/tags')
 	let g:gutentags_cache_dir = s:vim_tags
-	let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+	let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extras=+q']
 	let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 	let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+	let g:gutentags_ctags_extra_args += ['--languages=C,C++,Go,Rust,Asm,Vim']
+	let g:gutentags_ctags_extra_args += ['--exclude={.git,node_modules,build,third,thirdparty}']
 
 	let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
