@@ -58,7 +58,6 @@ func! MotionSettings()
 endfunc
 
 func! SymbolReferences()
-	let g:gutentags_trace = 1
 	let g:gutentags_enabled = 1
 	let g:gutentags_project_root = ['.root', '.git']
 	let g:gutentags_ctags_tagfile = '.tags'
