@@ -37,6 +37,7 @@ func! EnableClangFormatSettings()
 endfunc
 
 func! GolangKeyMap()
+	nnoremap <buffer><F6> :GoImports<CR>
 	nnoremap <buffer><F5> :GoFmt<CR>
 endfunc
 
