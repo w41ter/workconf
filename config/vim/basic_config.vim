@@ -1,6 +1,7 @@
 " highlight settings
 syntax enable
 set background=dark
+set termguicolors
 let g:solarized_termcolors=256
 " colorscheme solarized
 colorscheme zenburn
