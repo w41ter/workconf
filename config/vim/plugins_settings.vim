@@ -1,4 +1,3 @@
-
 func! FindRootPathUri(relative_path)
 	let buffer_path = lsp#utils#get_buffer_path()
 	for path in a:relative_path
