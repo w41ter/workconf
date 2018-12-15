@@ -30,11 +30,13 @@ case $1 in
 		;;
 esac
 
-cmake -H. -BRelease -DCMAKE_PREFIX_PATH=~/.bin/
-#-DSYSTEM_CLANG=on
+# https://github.com/MaskRay/ccls/wiki/Getting-started#build-the-ccls-language-server
+# cmake -H. -BRelease -DCMAKE_PREFIX_PATH=~/.bin/ -DSYSTEM_CLANG=on -DUSE_SHARED_LLVM=on -DLLVM_BUILD_LLVM_DYLIB=on
+cmake -H. -BRelease -DSYSTEM_CLANG=on -DCMAKE_PREFIX_PATH=/usr/lib/llvm-7 -DLLVM_ENABLE_RTTI=on
+# See if your system clang uses -DLLVM_ENABLE_RTTI=on
 
 ncpu=`nproc`  #`sysctl -n hw.ncpu`
-cmake --build Release -- -j${ncpu}
+cmake --build Release -- -j${ncpu} VERBOSE=1
 
 mkdir -p ~/.bin/local
 rm -rf ~/.bin/local/ccls

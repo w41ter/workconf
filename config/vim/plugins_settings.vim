@@ -18,6 +18,15 @@ func! LintSettings()
 	let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
 endfunc
 
+func! LspLintSettings()
+	let g:lsp_signs_enabled = 1         " enable signs
+	let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+
+	let g:lsp_signs_error = {'text': '✗'}
+	let g:lsp_signs_warning = {'text': '⚡'}
+	let g:lsp_signs_hint = {'text': '✔ '}
+endfunc
+
 func! CLikeLintSettings()
 	" disable other lint tools
 	let g:ale_cpp_clang_executable = ''
@@ -93,6 +102,7 @@ func! AutoComplete()
 	let g:ycm_collect_identifiers_from_tags_files=1
 	let g:ycm_complete_in_strings=1
 	let g:ycm_key_invoke_completion = '<c-z>'
+	let g:ycm_global_ycm_extra_conf = '~/.vim/config/.ycm_extra_conf.py'
 	set completeopt=menu,menuone
 
 	" noremap <c-z> <NOP>
@@ -122,7 +132,6 @@ func! AutoComplete()
 endfunc
 
 func! CLikeAutoComplete()
-	let g:ycm_global_ycm_extra_conf = '~/.vim/config/.ycm_extra_conf.py'
 endfunc
 
 func! CppHighlightEnhanced()
@@ -152,7 +161,8 @@ func! LeaderFSettings()
 
 endfunc
 
-call LintSettings()
+" call LintSettings()
+call LspLintSettings()
 
 call MotionSettings()
 

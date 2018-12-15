@@ -16,18 +16,22 @@ func! CLikeSettings()
 	call SpaceSetting()
 	call CppHighlightEnhanced()
 	call EnableClangFormatSettings()
-	call CLikeLintSettings()
+	" call CLikeLintSettings()
 	call CLikeAutoComplete()
 
-	" let g:lsp_log_verbose = 1
-	" let g:lsp_log_file = expand('~/vim-lsp.log')
+	let g:lsp_log_verbose = 1
+	let g:lsp_log_file = expand('~/vim-lsp.log')
 
 	if executable('ccls')
 		autocmd User lsp_setup call lsp#register_server({
 			\ 'name': 'ccls',
 			\ 'cmd': {server_info->['ccls']},
 			\ 'root_uri': {server_info->FindRootPathUri(['compile_commands.json', 'build/compile_commands.json'])},
-			\ 'initialization_options': { 'cacheDirectory': '/tmp/ccls/cache' },
+			\ 'initialization_options': {
+				\ 'cacheDirectory': '/tmp/ccls/cache',
+				\ 'index': {'threads': 2, 'comments': 0},
+				\ "diagnostics": { "onChange": -1, },
+				\ },
 			\ 'whitelist': ['c', 'cpp', 'cc', 'h'],
 			\ })
 	endif
@@ -64,7 +68,6 @@ func! GolangSettings()
 endfunc
 
 func! ClojureSettings()
-	echom "load clojure settings"
 	call SpaceSettingWith(2)
 endfunc
 
@@ -82,9 +85,9 @@ endfunc
 
 augroup AutoLoadLanguageSettings
 	autocmd!
-	autocmd BufNewFile,BufReadPre *.c,*.h,*.cc,*.cpp :call CLikeSettings()
-	autocmd BufNewFile,BufReadPre *.py :call PythonSettings()
-	autocmd BufNewFile,BufReadPre *.go :call GolangSettings()
-	autocmd BufNewFile,BufReadPre *.clj :call ClojureSettings()
-	autocmd BufNewFile,BufReadPre *.rs :call RustSettings()
+	autocmd FileType c,cpp :call CLikeSettings()
+	autocmd FileType python :call PythonSettings()
+	autocmd FileType golang :call GolangSettings()
+	autocmd FileType clojure :call ClojureSettings()
+	autocmd FileType rust :call RustSettings()
 augroup END
