@@ -19,8 +19,9 @@ Plug 'inkarkat/vim-ingo-library'
 " Plug 'w0rp/ale'
 
 " theme
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
+Plug 'lifepillar/vim-solarized8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
