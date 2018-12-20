@@ -19,18 +19,32 @@ func! CLikeSettings()
 	" call CLikeLintSettings()
 	call CLikeAutoComplete()
 
-	" let g:lsp_log_verbose = 1
-	" let g:lsp_log_file = expand('~/vim-lsp.log')
+	let g:lsp_log_verbose = 1
+	let g:lsp_log_file = expand('~/vim-lsp.log')
 
-	if executable('ccls')
+	" if executable('ccls')
+	"     autocmd User lsp_setup call lsp#register_server({
+	"         \ 'name': 'ccls',
+	"         \ 'cmd': {server_info->['ccls']},
+	"         \ 'root_uri': {server_info->FindRootPathUri(['compile_commands.json', 'build/compile_commands.json'])},
+	"         \ 'initialization_options': {
+	"             \ 'cacheDirectory': '/tmp/ccls/cache',
+	"             \ 'index': {'threads': 2, 'comments': 0},
+	"             \ "diagnostics": { "onChange": -1, },
+	"             \ },
+	"         \ 'whitelist': ['c', 'cpp', 'cc', 'h'],
+	"         \ })
+	" endif
+
+	if executable('cquery')
 		autocmd User lsp_setup call lsp#register_server({
-			\ 'name': 'ccls',
-			\ 'cmd': {server_info->['ccls']},
+			\ 'name': 'cquery',
+			\ 'cmd': {server_info->['cquery']},
 			\ 'root_uri': {server_info->FindRootPathUri(['compile_commands.json', 'build/compile_commands.json'])},
 			\ 'initialization_options': {
-				\ 'cacheDirectory': '/tmp/ccls/cache',
+				\ 'cacheDirectory': '/tmp/cquery/cache',
 				\ 'index': {'threads': 2, 'comments': 0},
-				\ "diagnostics": { "onChange": -1, },
+				\ 'diagnostics': { 'onChange': -1 },
 				\ },
 			\ 'whitelist': ['c', 'cpp', 'cc', 'h'],
 			\ })
