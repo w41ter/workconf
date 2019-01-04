@@ -18,9 +18,9 @@ func! CLikeSettings()
 	call EnableClangFormatSettings()
 	" call CLikeLintSettings()
 	call CLikeAutoComplete()
-
-	let g:lsp_log_verbose = 1
-	let g:lsp_log_file = expand('~/vim-lsp.log')
+    " 
+	" let g:lsp_log_verbose = 1
+	" let g:lsp_log_file = expand('~/vim-lsp.log')
 
 	" if executable('ccls')
 	"     autocmd User lsp_setup call lsp#register_server({

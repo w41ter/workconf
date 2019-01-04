@@ -3,8 +3,8 @@ syntax enable
 set background=dark
 set termguicolors
 " let g:solarized_termcolors=256
-colorscheme solarized8
-" colorscheme zenburn
+" colorscheme solarized8
+colorscheme zenburn
 
 set number
 set showmatch
