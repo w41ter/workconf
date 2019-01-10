@@ -101,6 +101,7 @@ func! AutoComplete()
 	let g:ycm_collect_identifiers_from_comments_and_strings = 1
 	let g:ycm_collect_identifiers_from_tags_files=1
 	let g:ycm_complete_in_strings=1
+	let g:ycm_max_num_candidates=10
 	let g:ycm_key_invoke_completion = '<c-z>'
 	let g:ycm_global_ycm_extra_conf = '~/.vim/config/.ycm_extra_conf.py'
 	set completeopt=menu,menuone
