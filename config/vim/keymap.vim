@@ -41,5 +41,10 @@ func! GolangKeyMap()
 	nnoremap <buffer><F5> :GoFmt<CR>
 endfunc
 
-call LspKeyMap()
+func! YCMKeyMap()
+	nnoremap <leader>gd :YcmCompleter GoTo<CR>
+	nnoremap <leader>gth :YcmCompleter GoToInclude<CR>
+	nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+endfunc
 
+call LspKeyMap()

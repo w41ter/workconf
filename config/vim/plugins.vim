@@ -16,7 +16,7 @@ Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'
 
 " Lint
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " theme
 " Plug 'altercation/vim-colors-solarized'

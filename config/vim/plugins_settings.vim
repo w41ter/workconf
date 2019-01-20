@@ -9,7 +9,7 @@ func! FindRootPathUri(relative_path)
 	return ''
 endfunc
 
-func! LintSettings()
+func! ALELintSettings()
 	" lint settings
 	let g:ale_sign_column_always=1
 	let g:ale_set_highlights=0
@@ -27,7 +27,7 @@ func! LspLintSettings()
 	let g:lsp_signs_hint = {'text': '✔ '}
 endfunc
 
-func! CLikeLintSettings()
+func! CLikeALELintSettings()
 	" disable other lint tools
 	let g:ale_cpp_clang_executable = ''
 	let g:ale_cpp_clangd_executable = ''
@@ -46,11 +46,6 @@ func! CLikeLintSettings()
 		let g:ale_cpp_clangtidy_checks = ['-checks']
 		let g:ale_cpp_clangtidy_executable = 'clang-tidy'
 	endif
-	" if executable('ccls')
-	"     let g:ale_c_build_dir_names = ['build']
-	"     let g:ale_cpp_cquery_executable = 'ccls'
-	"     let g:ale_cpp_cquery_cache_directory = '/tmp/ccls/cache'
-	" endif
 endfunc
 
 func! MotionSettings()
@@ -88,12 +83,9 @@ func! SymbolReferences()
 	endif
 
 	set tags=./.tags;,.tags
-	" let g:Tlist_Show_One_File = 1
-	" let g:Tlist_Exit_OnlyWindow = 1
-	" let g:Tlist_Use_Right_Window = 1
 endfunc
 
-func! AutoComplete()
+func! YCMAutoComplete()
 	let g:ycm_add_preview_to_completeopt = 0
 	let g:ycm_show_diagnostics_ui = 0
 	let g:ycm_server_log_level = 'info'
@@ -105,8 +97,6 @@ func! AutoComplete()
 	let g:ycm_key_invoke_completion = '<c-z>'
 	let g:ycm_global_ycm_extra_conf = '~/.vim/config/.ycm_extra_conf.py'
 	set completeopt=menu,menuone
-
-	" noremap <c-z> <NOP>
 
 	let g:ycm_semantic_triggers = {
 		\ 'c,cc,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
@@ -162,15 +152,14 @@ func! LeaderFSettings()
 
 endfunc
 
-" call LintSettings()
-call LspLintSettings()
+func! LintSettings()
+	call ALELintSettings()
+	" call LspLintSettings()
+endfunc
 
+call LintSettings()
 call MotionSettings()
-
 call SymbolReferences()
-
-call AutoComplete()
-
+call YCMAutoComplete()
 call NERDSettings()
-
 call TagbarSettings()

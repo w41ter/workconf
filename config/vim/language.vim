@@ -1,8 +1,4 @@
-func! PythonSettings()
-	let g:python_highlight_all=1
-
-	call SpaceSetting()
-
+func! PythonJumpSettings()
 	if executable('pyls')
 		autocmd User lsp_setup call lsp#register_server({
 			\ 'name': 'pyls',
@@ -12,13 +8,15 @@ func! PythonSettings()
 	endif
 endfunc
 
-func! CLikeSettings()
+func! PythonSettings()
+	let g:python_highlight_all=1
+
 	call SpaceSetting()
-	call CppHighlightEnhanced()
-	call EnableClangFormatSettings()
-	" call CLikeLintSettings()
-	call CLikeAutoComplete()
-    " 
+	call PythonJumpSettings()
+endfunc
+
+func! CLikeLspJumpSettings()
+    "
 	" let g:lsp_log_verbose = 1
 	" let g:lsp_log_file = expand('~/vim-lsp.log')
 
@@ -43,10 +41,29 @@ func! CLikeSettings()
 			\ 'root_uri': {server_info->FindRootPathUri(['compile_commands.json', 'build/compile_commands.json'])},
 			\ 'initialization_options': {
 				\ 'cacheDirectory': '/tmp/cquery/cache',
-				\ 'index': {'threads': 2, 'comments': 0},
+				\ 'index': {'threads': 16, 'comments': 0},
 				\ 'diagnostics': { 'onChange': -1 },
 				\ },
 			\ 'whitelist': ['c', 'cpp', 'cc', 'h'],
+			\ })
+	endif
+endfunc
+
+func! CLikeSettings()
+	call SpaceSetting()
+	call CppHighlightEnhanced()
+	call EnableClangFormatSettings()
+	call CLikeALELintSettings()
+	call CLikeAutoComplete()
+	call CLikeLspJumpSettings()
+endfunc
+
+func! GolangLSPJumpSettings()
+	if executable('go-langserver')
+		autocmd User lsp_setup call lsp#register_server({
+			\ 'name': 'go-langserver',
+			\ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
+			\ 'whitelist': ['go'],
 			\ })
 	endif
 endfunc
@@ -56,6 +73,7 @@ func! GolangSettings()
 
 	call GolangKeyMap()
 	call TabSetting()
+	call GolangLSPJumpSettings()
 
 	" vim-go settings
 	let g:go_highlight_extra_types=1
@@ -71,23 +89,13 @@ func! GolangSettings()
 	let g:go_highlight_format_strings=1
 	let g:go_highlight_variable_declarations=1
 	let g:go_highlight_variable_assignments=1
-
-	if executable('go-langserver')
-		autocmd User lsp_setup call lsp#register_server({
-			\ 'name': 'go-langserver',
-			\ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
-			\ 'whitelist': ['go'],
-			\ })
-	endif
 endfunc
 
 func! ClojureSettings()
 	call SpaceSettingWith(2)
 endfunc
 
-func! RustSettings()
-	call SpaceSetting()
-
+func! RustLSPJumpSettings()
 	if executable('rls')
 		autocmd User lsp_setup call lsp#register_server({
 			\ 'name': 'rls',
@@ -95,6 +103,11 @@ func! RustSettings()
 			\ 'whitelist': ['rust'],
 			\ })
 	endif
+endfunc
+
+func! RustSettings()
+	call SpaceSetting()
+	call RustLSPJumpSettings()
 endfunc
 
 augroup AutoLoadLanguageSettings

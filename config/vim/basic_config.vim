@@ -1,3 +1,6 @@
+set nocompatible
+set backspace=2
+
 " highlight settings
 syntax enable
 set background=dark
