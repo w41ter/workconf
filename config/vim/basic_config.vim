@@ -11,7 +11,9 @@ colorscheme zenburn
 
 set number
 set showmatch
-set cursorcolumn
+set lazyredraw
+set ttyfast
+" set cursorcolumn
 set cursorline
 set colorcolumn=121
 set hlsearch
