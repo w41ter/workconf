@@ -48,3 +48,4 @@ func! YCMKeyMap()
 endfunc
 
 call LspKeyMap()
+nnoremap <leader>d :YcmCompleter GoTo<CR>
