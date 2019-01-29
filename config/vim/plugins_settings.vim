@@ -11,6 +11,9 @@ endfunc
 
 func! ALELintSettings()
 	" lint settings
+	let g:ale_lint_on_text_changed = 'normal'
+	let g:ale_lint_delay = 1000
+	let g:ale_lint_on_enter = 0
 	let g:ale_sign_column_always=1
 	let g:ale_set_highlights=0
 	let g:ale_sign_error = '✗'
@@ -73,7 +76,7 @@ func! SymbolReferences()
 	let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extras=+q']
 	let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 	let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-	let g:gutentags_ctags_extra_args += ['--languages=C,C++,Go,Rust,Asm,Vim']
+	let g:gutentags_ctags_extra_args += ['--languages=C,C++,Go,Rust,Asm,Vim,Python']
 	let g:gutentags_ctags_extra_args += ['--exclude={.git,node_modules,build,third,thirdparty}']
 
 	let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
