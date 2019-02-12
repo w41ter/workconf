@@ -28,7 +28,7 @@ func! CLikeLspJumpSettings()
 	"         \ 'initialization_options': {
 	"             \ 'cacheDirectory': '/tmp/ccls/cache',
 	"             \ 'index': {'threads': 2, 'comments': 0},
-	"             \ "diagnostics": { "onChange": -1, },
+	"             \ 'diagnostics': { 'onChange': -1, },
 	"             \ },
 	"         \ 'whitelist': ['c', 'cpp', 'cc', 'h'],
 	"         \ })
@@ -44,12 +44,13 @@ func! CLikeLspJumpSettings()
 				\ 'index': {'threads': 16, 'comments': 0},
 				\ 'diagnostics': { 'onChange': -1 },
 				\ },
-			\ 'whitelist': ['c', 'cpp', 'cc', 'h'],
+			\ 'whitelist': ['c', 'cpp', 'cc', 'h', 'hpp'],
 			\ })
 	endif
 endfunc
 
 func! CLikeSettings()
+	echom 'load clike language settings'
 	call SpaceSetting()
 	call CppHighlightEnhanced()
 	call EnableClangFormatSettings()
@@ -109,6 +110,11 @@ func! RustSettings()
 	call SpaceSetting()
 	call RustLSPJumpSettings()
 endfunc
+
+augroup IdentifyFileType
+	autocmd!
+	autocmd BufRead,BufNewFile *.h,*.hpp set filetype=cpp
+augroup end
 
 augroup AutoLoadLanguageSettings
 	autocmd!

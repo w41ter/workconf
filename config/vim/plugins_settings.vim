@@ -82,7 +82,7 @@ func! SymbolReferences()
 	let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
 	if !isdirectory(s:vim_tags)
-		silent! call mkdir(s:vim_tags, 'p')
+		silent! call mkdir(s:vim_tags, 'p', 0777)
 	endif
 
 	set tags=./.tags;,.tags
@@ -106,6 +106,7 @@ func! YCMAutoComplete()
 		\ 'cs,lua,javascript': ['re!\w{2}'],
 		\ 'py': ['re!\w{2}'],
 		\ 'clojure': ['re!\w{1}'],
+		\ 'vim': ['re!\w{2}'],
 		\ }
 	let g:ycm_filetype_whitelist = {
 		\ 'c': 1,
