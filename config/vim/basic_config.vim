@@ -15,7 +15,7 @@ set lazyredraw
 set ttyfast
 " set cursorcolumn
 set cursorline
-set colorcolumn=121
+set colorcolumn=101
 set hlsearch
 set incsearch
 
