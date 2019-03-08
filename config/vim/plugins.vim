@@ -48,6 +48,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'zivyangll/git-blame.vim'  " ,s
 
 " Symbol references
 Plug 'ludovicchabant/vim-gutentags'

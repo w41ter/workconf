@@ -15,25 +15,39 @@ func! PythonSettings()
 	call PythonJumpSettings()
 endfunc
 
-func! CLikeLspJumpSettings()
-    "
-	" let g:lsp_log_verbose = 1
-	" let g:lsp_log_file = expand('~/vim-lsp.log')
+func! CLikeLspCCLS()
+	if executable('ccls')
+		autocmd User lsp_setup call lsp#register_server({
+			\ 'name': 'ccls',
+			\ 'cmd': {server_info->['ccls']},
+			\ 'root_uri': {server_info->FindRootPathUri(['compile_commands.json', 'build/compile_commands.json'])},
+			\ 'initialization_options': {
+				\ 'cacheDirectory': '/tmp/ccls/cache',
+				\ 'index': {'threads': 2, 'comments': 0},
+				\ 'diagnostics': { 'onChange': -1, },
+				\ },
+			\ 'whitelist': ['c', 'cpp', 'cc', 'h'],
+			\ })
+	endif
+endfunc
 
-	" if executable('ccls')
-	"     autocmd User lsp_setup call lsp#register_server({
-	"         \ 'name': 'ccls',
-	"         \ 'cmd': {server_info->['ccls']},
-	"         \ 'root_uri': {server_info->FindRootPathUri(['compile_commands.json', 'build/compile_commands.json'])},
-	"         \ 'initialization_options': {
-	"             \ 'cacheDirectory': '/tmp/ccls/cache',
-	"             \ 'index': {'threads': 2, 'comments': 0},
-	"             \ 'diagnostics': { 'onChange': -1, },
-	"             \ },
-	"         \ 'whitelist': ['c', 'cpp', 'cc', 'h'],
-	"         \ })
-	" endif
+func! CLikeLspClangd()
+	if executable('clangd')
+		autocmd User lsp_setup call lsp#register_server({
+			\ 'name': 'clangd',
+			\ 'cmd': {server_info->['clangd']},
+			\ 'root_uri': {server_info->FindRootPathUri(['compile_commands.json', 'build/compile_commands.json'])},
+			\ 'initialization_options': {
+				\ 'cacheDirectory': '/tmp/clangd/cache',
+				\ 'index': {'threads': 16, 'comments': 0},
+				\ 'diagnostics': { 'onChange': -1, },
+				\ },
+			\ 'whitelist': ['c', 'cpp', 'cc', 'h'],
+			\ })
+	endif
+endfunc
 
+func! CLikeLspCquery()
 	if executable('cquery')
 		autocmd User lsp_setup call lsp#register_server({
 			\ 'name': 'cquery',
@@ -49,8 +63,14 @@ func! CLikeLspJumpSettings()
 	endif
 endfunc
 
+func! CLikeLspJumpSettings()
+	" let g:lsp_log_verbose = 1
+	" let g:lsp_log_file = expand('~/vim-lsp.log')
+
+	call CLikeLspClangd()
+endfunc
+
 func! CLikeSettings()
-	echom 'load clike language settings'
 	call SpaceSetting()
 	call CppHighlightEnhanced()
 	call EnableClangFormatSettings()
