@@ -47,7 +47,7 @@ func! CLikeALELintSettings()
 	if executable('clang-tidy')
 		" enable clang-tidy support
 		let g:ale_c_build_dir_names = ['build']
-		let g:ale_cpp_clangtidy_checks = ['-checks']
+		" let g:ale_cpp_clangtidy_checks = ['-checks']
 		let g:ale_cpp_clangtidy_executable = 'clang-tidy'
 	endif
 endfunc
@@ -72,19 +72,30 @@ func! SymbolReferences()
 	if executable('ctags')
 		let g:gutentags_modules += ['ctags']
 	endif
+	" if executable('gtags-cscope') && executable('gtags')
+	"     let g:gutentags_modules += ['gtags_cscope']
+	" endif
 	let s:vim_tags = expand('~/.cache/tags')
 	let g:gutentags_cache_dir = s:vim_tags
 	let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extras=+q']
 	let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 	let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 	let g:gutentags_ctags_extra_args += ['--languages=C,C++,Go,Rust,Asm,Vim,Python']
-	let g:gutentags_ctags_extra_args += ['--exclude={.git,node_modules,build,third,thirdparty}']
+	" let g:gutentags_ctags_extra_args += ['--exclude={.git,node_modules,build,third,thirdparty}']
+	let g:gutentags_ctags_extra_args += ['--exclude={.git,node_modules,build}']
 
 	let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+	" let g:gutentags_auto_add_gtags_cscope = 0
+
+	" let s:vim_cscope = expand('~/.cache/cscope')
+	" let g:gutentags_scopefile = s:vim_cscope
 
 	if !isdirectory(s:vim_tags)
 		silent! call mkdir(s:vim_tags, 'p', 0777)
 	endif
+	" if !isdirectory(s:vim_cscope)
+	"     silent! call mkdir(s:vim_cscope, 'p', 0777)
+	" endif
 
 	set tags=./.tags;,.tags
 endfunc
@@ -134,8 +145,10 @@ func! CppHighlightEnhanced()
 	let g:cpp_class_scope_highlight=1
 	let g:cpp_member_variable_highlight = 1
 	let g:cpp_class_decl_highlight = 1
-	let g:cpp_experimental_template_highlight = 1
-	let g:cpp_concepts_highlight = 1
+	let g:cpp_experimental_template_highlight = 0
+	let g:cpp_concepts_highlight = 0
+	let c_no_curly_error = 1
+	let g:c_no_curly_error = 1
 endfunc
 
 func! NERDSettings()
@@ -162,9 +175,18 @@ func! LintSettings()
 	call LspLintSettings()
 endfunc
 
+func! HighlightCursorWords()
+	let g:HiCursorWords_style='ctermfg=fg ctermbg=bg cterm=underline gui=underline'
+	let g:HiCursorWords_delay = 300
+	let g:HiCursorWords_hiGroupRegexp = ''
+	let g:HiCursorWords_debugEchoHiName = 0
+	" let g:HiCursorWords_linkStyle='Underlined'
+endfunc
+
 call LintSettings()
 call MotionSettings()
 call SymbolReferences()
 call YCMAutoComplete()
 call NERDSettings()
 call TagbarSettings()
+call HighlightCursorWords()

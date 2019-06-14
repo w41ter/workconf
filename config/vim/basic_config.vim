@@ -1,6 +1,8 @@
 set nocompatible
 set backspace=2
 
+set mouse=nv  " support mouse in normal & visual mode
+
 " highlight settings
 syntax enable
 set background=dark
@@ -8,6 +10,8 @@ set termguicolors
 " let g:solarized_termcolors=256
 " colorscheme solarized8
 colorscheme zenburn
+" colorscheme gruvbox
+" let g:gruvbox_contrast = 'soft'
 
 set number
 set showmatch

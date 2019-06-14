@@ -7,6 +7,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'ryanolsonx/vim-lsp-python', { 'for': 'python' }
 Plug 'Valloric/YouCompleteMe'
+"Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 
 " go extension
 Plug 'fatih/vim-go', { 'tag': '*', 'for': 'go' }
@@ -20,6 +21,7 @@ Plug 'w0rp/ale'
 
 " theme
 " Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 Plug 'jnurmine/Zenburn'
 Plug 'lifepillar/vim-solarized8'
 Plug 'vim-airline/vim-airline'
@@ -48,7 +50,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'zivyangll/git-blame.vim'  " ,s
+Plug 'PatrickNicholas/HiCursorWords'  " highlight current word
+
+" tips c/c++ function params
+Plug 'Shougo/echodoc.vim'
+set noshowmode
 
 " Symbol references
 Plug 'ludovicchabant/vim-gutentags'

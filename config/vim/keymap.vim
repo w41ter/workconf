@@ -47,5 +47,7 @@ func! YCMKeyMap()
 	nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
 endfunc
 
-call LspKeyMap()
+" call LspKeyMap()
 nnoremap <leader>d :YcmCompleter GoTo<CR>
+
+nnoremap <leader>b :<C-u>call gitblame#echo()<CR>

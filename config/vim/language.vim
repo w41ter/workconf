@@ -67,11 +67,11 @@ func! CLikeLspJumpSettings()
 	" let g:lsp_log_verbose = 1
 	" let g:lsp_log_file = expand('~/vim-lsp.log')
 
-	call CLikeLspClangd()
+	" call CLikeLspClangd()
 endfunc
 
 func! CLikeSettings()
-	call SpaceSetting()
+	call SpaceSettingWith(2)
 	call CppHighlightEnhanced()
 	call EnableClangFormatSettings()
 	call CLikeALELintSettings()
