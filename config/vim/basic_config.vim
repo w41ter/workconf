@@ -5,13 +5,18 @@ set mouse=nv  " support mouse in normal & visual mode
 
 " highlight settings
 syntax enable
-set background=dark
+" set background=dark
+set background=light
 set termguicolors
 " let g:solarized_termcolors=256
 " colorscheme solarized8
-colorscheme zenburn
+" colorscheme zenburn
 " colorscheme gruvbox
 " let g:gruvbox_contrast = 'soft'
+" colorscheme onehalflight
+" let g:airline_theme='onehalfdark'
+" colorscheme one
+colorscheme PaperColor
 
 set number
 set showmatch

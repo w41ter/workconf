@@ -176,7 +176,7 @@ func! LintSettings()
 endfunc
 
 func! HighlightCursorWords()
-	let g:HiCursorWords_style='ctermfg=fg ctermbg=bg cterm=underline gui=underline'
+	let g:HiCursorWords_style='cterm=underline gui=underline'
 	let g:HiCursorWords_delay = 300
 	let g:HiCursorWords_hiGroupRegexp = ''
 	let g:HiCursorWords_debugEchoHiName = 0

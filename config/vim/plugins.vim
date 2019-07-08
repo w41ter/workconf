@@ -22,6 +22,9 @@ Plug 'w0rp/ale'
 " theme
 " Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'rakr/vim-one'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'jnurmine/Zenburn'
 Plug 'lifepillar/vim-solarized8'
 Plug 'vim-airline/vim-airline'
