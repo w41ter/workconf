@@ -97,7 +97,9 @@ func! SymbolReferences()
 	"     silent! call mkdir(s:vim_cscope, 'p', 0777)
 	" endif
 
-	set tags=./.tags;,.tags
+    let g:gutentags_exclude_filetypes = ["gitcommit"]
+
+    set tags=./.tags;,.tags
 endfunc
 
 func! YCMAutoComplete()
