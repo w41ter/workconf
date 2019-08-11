@@ -54,6 +54,13 @@ function TabSetting()
     " set smarttab      guess tab by exists <sp> to setting above settings.
 endfunction
 
+function !TabSettingWith(stop)
+    let &shiftwidth=a:stop
+    let &tabstop=a:stop
+    let &softtabstop=a:stop
+    set noexpandtab
+endfunction
+
 function SpaceSetting()
     set shiftwidth=4
     set tabstop=4
@@ -76,8 +83,8 @@ function ChangeColorColumn(column)
 	let &colorcolumn = a:column
 endfunc
 
-" default setting of tab
-call TabSetting()
+" default setting of space
+call SpaceSetting()
 
 " indent setting:
 " autoindent
