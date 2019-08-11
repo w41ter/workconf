@@ -54,7 +54,7 @@ function TabSetting()
     " set smarttab      guess tab by exists <sp> to setting above settings.
 endfunction
 
-function !TabSettingWith(stop)
+function! TabSettingWith(stop)
     let &shiftwidth=a:stop
     let &tabstop=a:stop
     let &softtabstop=a:stop
