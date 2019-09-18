@@ -129,6 +129,8 @@ endfunc
 func! RustSettings()
 	call SpaceSetting()
 	call RustLSPJumpSettings()
+
+    call RustKeyMap()
 endfunc
 
 augroup IdentifyFileType

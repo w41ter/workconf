@@ -8,15 +8,15 @@ syntax enable
 " set background=dark
 set background=light
 set termguicolors
-" let g:solarized_termcolors=256
-" colorscheme solarized8
+let g:solarized_termcolors=256
+colorscheme solarized8
 " colorscheme zenburn
 " colorscheme gruvbox
 " let g:gruvbox_contrast = 'soft'
 " colorscheme onehalflight
 " let g:airline_theme='onehalfdark'
 " colorscheme one
-colorscheme PaperColor
+" colorscheme PaperColor
 
 set number
 set showmatch
@@ -24,7 +24,7 @@ set lazyredraw
 set ttyfast
 " set cursorcolumn
 set cursorline
-set colorcolumn=101
+set colorcolumn=81
 set hlsearch
 set incsearch
 

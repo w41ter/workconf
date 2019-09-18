@@ -12,6 +12,8 @@ Plug 'Valloric/YouCompleteMe'
 " go extension
 Plug 'fatih/vim-go', { 'tag': '*', 'for': 'go' }
 
+Plug 'rust-lang/rust.vim'
+
 " vim mark
 Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'

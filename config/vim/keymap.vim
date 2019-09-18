@@ -41,6 +41,10 @@ func! GolangKeyMap()
 	nnoremap <buffer><F5> :GoFmt<CR>
 endfunc
 
+func! RustKeyMap()
+    nnoremap <F5> :RustFmt<CR>
+endfunc
+
 func! YCMKeyMap()
 	nnoremap <leader>gd :YcmCompleter GoTo<CR>
 	nnoremap <leader>gth :YcmCompleter GoToInclude<CR>
