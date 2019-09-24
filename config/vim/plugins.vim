@@ -67,5 +67,8 @@ set noshowmode
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 
+" Session Manager 
+Plug 'skanehira/vsession'
+
 call plug#end()
 
