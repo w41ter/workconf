@@ -185,8 +185,6 @@ func! HighlightCursorWords()
 	" let g:HiCursorWords_linkStyle='Underlined'
 endfunc
 
-let g:vsession_use_fzf = 1
-
 call LintSettings()
 call MotionSettings()
 call SymbolReferences()
