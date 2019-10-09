@@ -4,6 +4,11 @@ set backspace=2
 set mouse=nv  " support mouse in normal & visual mode
 set spell spelllang=en_us
 
+" https://github.com/vim/vim/issues/993#issuecomment-255651605
+" set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " highlight settings
 syntax enable
 set background=dark
