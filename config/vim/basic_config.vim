@@ -2,11 +2,12 @@ set nocompatible
 set backspace=2
 
 set mouse=nv  " support mouse in normal & visual mode
+set spell spelllang=en_us
 
 " highlight settings
 syntax enable
-" set background=dark
-set background=light
+set background=dark
+"set background=light
 set termguicolors
 let g:solarized_termcolors=256
 colorscheme solarized8

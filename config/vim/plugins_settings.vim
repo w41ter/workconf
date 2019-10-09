@@ -17,8 +17,8 @@ func! ALELintSettings()
 	let g:ale_sign_column_always=1
 	let g:ale_set_highlights=0
 	let g:ale_sign_error = '✗'
-	let g:ale_sign_warning = '⚡'
-	let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+	let g:ale_sign_warning = '-'
+	let g:ale_statusline_format = ['✗ %d', '- %d', '✔ OK']
 endfunc
 
 func! LspLintSettings()
@@ -27,8 +27,8 @@ func! LspLintSettings()
 	let g:lsp_diagnostics_echo_cursor = 0 " enable echo under cursor when in normal mode
 
 	let g:lsp_signs_error = {'text': '✗'}
-	let g:lsp_signs_warning = {'text': '⚡'}
-	let g:lsp_signs_hint = {'text': '✔ '}
+	let g:lsp_signs_warning = {'text': '-'}
+	let g:lsp_signs_hint = {'text': '✔'}
 endfunc
 
 func! CLikeALELintSettings()
@@ -47,7 +47,7 @@ func! CLikeALELintSettings()
 	if executable('clang-tidy')
 		" enable clang-tidy support
 		let g:ale_c_build_dir_names = ['build']
-		" let g:ale_cpp_clangtidy_checks = ['-checks']
+        let g:ale_cpp_clangtidy_checks = ['*']
 		let g:ale_cpp_clangtidy_executable = 'clang-tidy'
 	endif
 endfunc
