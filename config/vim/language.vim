@@ -135,7 +135,7 @@ endfunc
 
 augroup IdentifyFileType
 	autocmd!
-	autocmd BufRead,BufNewFile *.h,*.hpp set filetype=cpp
+	autocmd BufRead,BufNewFile *.h,*.cc,*.hpp set filetype=cpp
 augroup end
 
 augroup AutoLoadLanguageSettings

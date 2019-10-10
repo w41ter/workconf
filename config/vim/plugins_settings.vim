@@ -103,17 +103,19 @@ func! SymbolReferences()
 endfunc
 
 func! YCMAutoComplete()
+	" disable ycm preview window
 	let g:ycm_add_preview_to_completeopt = 0
-	let g:ycm_show_diagnostics_ui = 0
+	set completeopt=menu,menuone
+
+	let g:ycm_show_diagnostics_ui = 0  " turns on YCM's diagnostic display features
 	let g:ycm_server_log_level = 'info'
 	let g:ycm_min_num_identifier_candidate_chars = 2
-	let g:ycm_collect_identifiers_from_comments_and_strings = 1
-	let g:ycm_collect_identifiers_from_tags_files=1
+	let g:ycm_collect_identifiers_from_comments_and_strings = 2
+	let g:ycm_collect_identifiers_from_tags_files=0
 	let g:ycm_complete_in_strings=1
 	let g:ycm_max_num_candidates=10
 	let g:ycm_key_invoke_completion = '<c-z>'
 	let g:ycm_global_ycm_extra_conf = '~/.vim/config/.ycm_extra_conf.py'
-	set completeopt=menu,menuone
 
 	let g:ycm_semantic_triggers = {
 		\ 'c,cc,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
@@ -192,3 +194,4 @@ call YCMAutoComplete()
 call NERDSettings()
 call TagbarSettings()
 call HighlightCursorWords()
+

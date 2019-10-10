@@ -7,7 +7,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'ryanolsonx/vim-lsp-python', { 'for': 'python' }
 Plug 'Valloric/YouCompleteMe'
-"Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 " go extension
 Plug 'fatih/vim-go', { 'tag': '*', 'for': 'go' }
@@ -60,14 +60,23 @@ Plug 'zivyangll/git-blame.vim'  " ,s
 Plug 'PatrickNicholas/HiCursorWords'  " highlight current word
 
 " tips c/c++ function params
+if has("nvim")
+    let g:echodoc#enable_at_startup = 1
+    let g:echodoc#type = 'floating'
+    " To use a custom highlight for the float window,
+    " change Pmenu to your highlight group
+    highlight link EchoDocFloat Pmenu
+else
+    set noshowmode
+    let g:echodoc_enable_at_startup = 1
+endif
 Plug 'Shougo/echodoc.vim'
-set noshowmode
 
 " Symbol references
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 
-" Session Manager 
+" Session Manager
 Plug 'skanehira/vsession'
 
 call plug#end()
