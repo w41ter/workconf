@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function git-branch-name {
-  git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3
+  local branch=`git symbolic-ref HEAD 2>/dev/null`
+  echo ${branch#"refs/heads/"}
 }
 
 function git-branch-prompt {
