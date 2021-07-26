@@ -79,5 +79,7 @@ Plug 'majutsushi/tagbar'
 " Session Manager
 Plug 'skanehira/vsession'
 
+Plug 'thinca/vim-localrc'
+
 call plug#end()
 
